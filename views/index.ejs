@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		<%= title %>
+	</title>
+	<link rel='stylesheet' href='/stylesheets/style.css'>
+	<script src='/socket.io/socket.io.js'></script>
+	<script src='/javascripts/client.js'></script>
+</head>
+
+<body>
+	<h1>
+		<%= title%>
+	</h1>
+	<hr>
+	<p>Select a file to upload.</p>
+	<form method='post' enctype="multipart/form-data">
+		<!--if specified, use this name as file name-->
+		<p>FileName: <input type="text" name='name' , placeholder="Name" /></p>
+		<p><input type="file" , name='file' /></p>
+		<p><input type="submit" , name='upload' , value='Upload' /></p>
+	</form>
+	<div>
+		<p>Progress: <span id='uploadProgress'></span></p>
+	</div>
+	<div id='bar'></div>
+
+	<table>
+		<caption>Uploaded Files</caption>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Size</th>
+				<th>Type</th>
+				<th>DateTime</th>
+				<!--<th>Details</th>-->
+			</tr>
+		</thead>
+		<tbody>
+			<% fileUploaded.forEach(function(item, key, mapObj) { %>
+				<tr>
+					<td>
+						<a href='/file/<%=key%>/download'>
+							<%=item.newName%>
+						</a>
+					</td>
+					<td>
+						<%=item.file.size%>
+					</td>
+					<td>
+						<%=item.file.type%>
+					</td>
+					<td>
+						<%=item.file.lastModifiedDate%>
+					</td>
+					<!--lastModifiedDate, mtime???-->
+					<!--<td><%=JSON.stringify(item.file)%></td>-->
+				</tr>
+				<%})%>
+		</tbody>
+	</table>
+</body>
+
+</html>

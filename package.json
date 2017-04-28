@@ -1,0 +1,25 @@
+{
+  "name": "file-upload-with-progress-bar",
+  "version": "1.0.0",
+  "description": "file upload/download with progress bar using express and socket.io",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "upload",
+    "file",
+    "download",
+    "file",
+    "socket.io",
+    "process-bar"
+  ],
+  "author": "Heartsuit",
+  "license": "ISC",
+  "dependencies": {
+    "express": "4.15.2",
+    "socket.io": "1.7.3",
+    "formidable": "1.1.1",
+    "ejs": "2.5.6"
+  }
+}
