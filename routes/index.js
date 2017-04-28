@@ -53,8 +53,7 @@ exports.submit = function (dir) {
 
       var progress = {
         name: 'progress',
-        bytesReceived: bytesReceived,
-        bytesExpected: bytesExpected
+        percent: percent
       };
 
       // emit event : progress

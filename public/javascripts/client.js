@@ -27,9 +27,8 @@ function getUploadProgressFromServer() {
 
 	socket.on("progress", function (data) {
 		if ("progress" === data.name) {
-			var percentage = Math.floor(data.bytesReceived / data.bytesExpected * 100);
-			uploadProgress.innerText = percentage + '%';
-			bar.style.width = percentage / 100 * document.body.offsetWidth + 'px';
+			uploadProgress.innerText = data.percent + '%';
+			bar.style.width = data.percent / 100 * document.body.offsetWidth + 'px';
 		} else {
 			console.log("There is nothing.", data);
 		}
